@@ -76,7 +76,7 @@ func (b *RedisConfigOptionsBuilder) List() []func(*RedisConfigOptions) error {
 	return b.Opts
 }
 
-// NewRedisConfigOptionsBuilder creates and returns a new instance of RedisConfigOptionsBuilder.
+// NewRedisConfigOptions creates and returns a new instance of RedisConfigOptionsBuilder.
 // This function provides a convenient way to initialize the builder for creating Redis configuration options.
 //
 // Returns:
@@ -84,9 +84,9 @@ func (b *RedisConfigOptionsBuilder) List() []func(*RedisConfigOptions) error {
 //
 // Example:
 //
-//	builder := NewRedisConfigOptionsBuilder()
+//	builder := NewRedisConfigOptions()
 //	config, err := NewRedisConfig(builder.SetAddr("localhost:6379").SetPassword("secret").SetDB(1))
-func NewRedisConfigOptionsBuilder() *RedisConfigOptionsBuilder {
+func NewRedisConfigOptions() *RedisConfigOptionsBuilder {
 	return &RedisConfigOptionsBuilder{}
 }
 

@@ -27,7 +27,7 @@ import (
 //
 // Example:
 //
-//	builder := NewRedisConfigOptionsBuilder()
+//	builder := NewRedisConfigOptions()
 //	config, err := NewRedisConfig(builder.SetAddr("localhost:6379").SetDB(0))
 //	if err != nil {
 //	    log.Fatal(err)

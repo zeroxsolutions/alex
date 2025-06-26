@@ -13,7 +13,7 @@ A Go package providing configuration and utility functions for Redis cache opera
 ## Installation
 
 ```bash
-go get github.com/your-username/alex
+go get github.com/zeroxsolutions/alex
 ```
 
 ## Quick Start
@@ -25,12 +25,12 @@ import (
     "fmt"
     "log"
     
-    "github.com/your-username/alex"
+    "github.com/zeroxsolutions/alex"
 )
 
 func main() {
     // Create a builder
-    builder := alex.NewRedisConfigOptionsBuilder()
+    builder := alex.NewRedisConfigOptions()
     
     // Build Redis configuration
     config, err := alex.NewRedisConfig(
@@ -78,7 +78,7 @@ type RedisConfig struct {
 Builder pattern for constructing Redis configurations:
 
 ```go
-builder := alex.NewRedisConfigOptionsBuilder()
+builder := alex.NewRedisConfigOptions()
 ```
 
 ##### Methods
@@ -90,11 +90,11 @@ builder := alex.NewRedisConfigOptionsBuilder()
 
 ### Functions
 
-#### `NewRedisConfigOptionsBuilder()`
+#### `NewRedisConfigOptions()`
 Creates a new builder instance:
 
 ```go
-builder := alex.NewRedisConfigOptionsBuilder()
+builder := alex.NewRedisConfigOptions()
 ```
 
 #### `NewRedisConfig(opts ...builderutil.Lister[RedisConfigOptions])`
@@ -123,7 +123,7 @@ const TimeoutDefault = 1
 ### Basic Configuration
 
 ```go
-builder := alex.NewRedisConfigOptionsBuilder()
+builder := alex.NewRedisConfigOptions()
 config, err := alex.NewRedisConfig(
     builder.SetAddr("localhost:6379"),
 )
@@ -135,7 +135,7 @@ if err != nil {
 ### Full Configuration
 
 ```go
-builder := alex.NewRedisConfigOptionsBuilder()
+builder := alex.NewRedisConfigOptions()
 config, err := alex.NewRedisConfig(
     builder.SetAddr("redis.example.com:6379").
            SetPassword("secretpassword").
@@ -154,7 +154,7 @@ fmt.Printf("Database: %d\n", config.DB)
 
 ```go
 config, err := alex.NewRedisConfig(
-    alex.NewRedisConfigOptionsBuilder().
+    alex.NewRedisConfigOptions().
         SetAddr("localhost:6379").
         SetPassword("mypass").
         SetDB(1),
@@ -165,7 +165,7 @@ config, err := alex.NewRedisConfig(
 
 ```go
 config, err := alex.NewRedisConfig(
-    alex.NewRedisConfigOptionsBuilder().
+    alex.NewRedisConfigOptions().
         SetDB(-1), // Invalid DB number
 )
 if err != nil {
@@ -220,7 +220,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Builder pattern for Redis configuration
 - Validation for Redis connection parameters
 - Functional options support
-
-```shell
-go get github.com/zeroxsolutions/alex
-```
